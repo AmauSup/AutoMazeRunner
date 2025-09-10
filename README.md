@@ -166,7 +166,7 @@ void loop() {
 ```
     This is a basic framework. Additional logic for audio detection and maze-solving strategies can be added based on your robot’s sensors.
 
-📸 Project Images
+## 📸 Project Images
 
 
 📄 Conclusion
