@@ -1,82 +1,88 @@
-Autonomous Maze-Solving Robot with Audio Detection
+# 🤖 Autonomous Maze-Solving Robot with Audio Detection
 
-🧠 Project Overview
+---
 
-This project demonstrates the development of an autonomous robot capable of navigating and solving a maze using audio sensors to detect walls. The robot employs a 4-wheel drive system and utilizes an audio detection mechanism to sense obstacles, enabling it to make real-time navigation decisions.
+## 🧠 Project Overview
 
-⚙️ Hardware Components
+This project demonstrates the development of an **autonomous robot** capable of navigating and solving a maze using **audio sensors** to detect walls.  
+The robot is built on a **4-wheel drive chassis** and leverages an audio detection mechanism to sense obstacles, enabling **real-time navigation decisions**.
 
-Arduino Uno: Microcontroller for processing sensor data and controlling motors.
+---
 
-4WD Robot Chassis: Provides mobility for the robot.
+## ⚙️ Hardware Components
 
-L298N Motor Driver: Controls the motors based on signals from the Arduino.
+- **Arduino Uno** – Microcontroller for processing sensor data and controlling motors  
+- **4WD Robot Chassis** – Provides mobility for the robot  
+- **L298N Motor Driver** – Controls motors based on Arduino signals  
+- **Ultrasonic Sensors (3 units)** – Measures distances to detect obstacles  
+- **Audio Sensors (Microphone Array)** – Detects sounds reflecting off walls to aid in navigation  
+- **Servo Motor** – Controls orientation of audio sensors  
+- **Power Supply** – Provides necessary power to all components  
 
-Ultrasonic Sensors (3 units): Measures distances to detect obstacles.
+---
 
-Audio Sensors (Microphone Array): Detects sounds reflecting off walls to aid in navigation.
+## 📦 Software Requirements
 
-Servo Motor: Controls the orientation of the audio sensors.
+- **Arduino IDE** – Development environment for programming the Arduino  
+- **NewPing Library** – Efficient ultrasonic sensor management  
+- **Servo Library** – Controls the servo motor for sensor orientation  
+- **Custom Audio Processing Code** – Interprets audio signals for navigation decisions  
 
-Power Supply: Provides necessary power to all components.
+---
 
-📦 Software Requirements
+## 🧭 Navigation Algorithm
 
-Arduino IDE: Development environment for programming the Arduino.
+The robot combines **ultrasonic** and **audio sensors** to navigate the maze:
 
-NewPing Library: Efficient control of ultrasonic sensors.
+1. **Audio Detection** – Microphone array detects sounds reflecting off walls.  
+2. **Sensor Orientation** – Servo motor scans different directions for obstacle detection.  
+3. **Distance Measurement** – Ultrasonic sensors measure proximity to obstacles.  
+4. **Decision Making** – Based on sensor input, the robot moves forward, turns left, or turns right.  
 
-Servo Library: Controls the servo motor for sensor orientation.
+---
 
-Custom Audio Processing Code: Interprets audio signals for navigation decisions.
+## 🛠️ Installation and Setup
 
-🧭 Navigation Algorithm
+### 1. Assemble the Hardware
 
-The robot employs a combination of ultrasonic and audio sensors to navigate the maze:
+- Mount ultrasonic sensors and microphone array on the robot chassis  
+- Connect motors to the L298N driver  
+- Wire all components to the Arduino Uno  
 
-Audio Detection: The microphone array detects sounds reflecting off walls, indicating the presence of obstacles.
+### 2. Install Arduino IDE
 
-Sensor Orientation: The servo motor adjusts the orientation of the audio sensors to scan different directions.
+Download from: [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)  
 
-Distance Measurement: Ultrasonic sensors measure the distance to obstacles in the robot's path.
+### 3. Install Required Libraries
 
-Decision Making: Based on sensor inputs, the robot decides to move forward, turn left, or turn right to navigate the maze.
+- Open Arduino IDE → **Sketch → Include Library → Manage Libraries**  
+- Search and install:  
+  - `NewPing`  
+  - `Servo`  
 
-🛠️ Installation and Setup
+### 4. Upload the Code
 
-Assemble the Hardware: Mount the ultrasonic sensors and microphone array on the robot chassis. Connect the motors to the L298N driver and wire the components to the Arduino Uno.
+- Open the Arduino sketch in the IDE  
+- Select the correct **board** and **port** under Tools  
+- Click **Upload**  
 
-Install the Arduino IDE: Download and install the Arduino IDE from https://www.arduino.cc/en/software
+### 5. Power the Robot
 
-Install Required Libraries:
+- Connect the power supply and ensure all components receive power  
 
-Open the Arduino IDE.
+---
 
-Go to Sketch > Include Library > Manage Libraries.
+## 📐 Circuit Diagram
 
-Search for and install the following libraries:
+> Ensure all connections are secure and placed correctly according to the diagram.
 
-NewPing
+![Circuit Diagram](https://example.com/circuit-diagram.jpg)  
 
-Servo
+---
 
-Upload the Code:
+## 📄 Code Explanation
 
-Open the provided Arduino sketch in the IDE.
-
-Select the correct board and port under Tools.
-
-Click the Upload button to transfer the code to the Arduino.
-
-Power the Robot: Connect the power supply to the robot and ensure all components are receiving power.
-
-📐 Circuit Diagram
-
-Note: Ensure all connections are secure and correctly placed as per the diagram.
-
-📄 Code Explanation
-
-```
+```cpp
 #include <NewPing.h>
 #include <Servo.h>
 
@@ -158,12 +164,14 @@ void loop() {
   }
 }
 ```
-Note: The code provided is a basic framework. Additional logic for audio detection and decision-making should be implemented based on your specific hardware and requirements.
+    This is a basic framework. Additional logic for audio detection and maze-solving strategies can be added based on your robot’s sensors.
 
 📸 Project Images
 
+
 📄 Conclusion
 
-This project showcases the integration of audio sensors with traditional ultrasonic sensors to navigate a maze autonomously. By combining these technologies, the robot can make informed decisions about its environment, enhancing its ability to solve complex mazes.
+This project demonstrates how audio sensors can be combined with ultrasonic sensors to create an autonomous maze-solving robot.
+The robot can detect obstacles and make real-time navigation decisions, showcasing the integration of hardware, software, and control algorithms.
 
-For further development, consider implementing machine learning algorithms to improve the robot's decision-making process based on sensor inputs.
+Future improvements may include machine learning for smarter navigation and adaptive behavior.
