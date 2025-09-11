@@ -1,4 +1,4 @@
-# 🤖 Autonomous Maze-Solving Robot with Audio Detection
+# 🤖 Robot autonome résolvant un labyrinthe avec détection audio
 
 [![Arduino](https://img.shields.io/badge/Arduino-Uno-blue.svg)](https://www.arduino.cc/) 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) 
@@ -6,83 +6,84 @@
 
 ---
 
-## 🧠 Project Overview
+## 🧠 Présentation du projet
 
-This project demonstrates the development of an **autonomous robot** capable of navigating and solving a **maze** using **audio sensors** to detect walls.  
+Ce projet démontre le développement d’un **robot autonome** capable de naviguer et de résoudre un **labyrinthe** en utilisant des **capteurs audio** pour détecter les murs.  
 
-The robot is built on a **4-wheel drive chassis** and uses **ultrasonic + audio detection** to sense obstacles and make real-time navigation decisions.
-
----
-
-## ⚙️ Hardware Components
-
-- **Arduino Uno** – Microcontroller for sensor processing & motor control  
-- **4WD Robot Chassis** – Provides mobility  
-- **L298N Motor Driver** – Controls motors  
-- **Ultrasonic Sensors (3 units)** – Measures distances  
-- **Audio Sensors (Microphone Array)** – Detects wall reflections  
-- **Servo Motor** – Rotates audio sensors for scanning  
-- **Power Supply** – Powers all components  
+Le robot est construit sur un **châssis à 4 roues motrices** et utilise **des capteurs ultrasoniques et audio** pour détecter les obstacles et prendre des décisions de navigation en temps réel.
 
 ---
 
-## 📦 Software Requirements
+## ⚙️ Composants matériels
 
-- **Arduino IDE** – [Download](https://www.arduino.cc/en/software)  
-- **Libraries**:  
-  - `NewPing` – Ultrasonic sensor management  
-  - `Servo` – Servo motor control  
-- **Custom Audio Processing Code** – Interprets audio signals for navigation  
-
----
-
-## 🧭 Navigation Algorithm
-
-The robot combines **ultrasonic** and **audio sensors** for autonomous navigation:
-
-1. **Audio Detection** – Microphone array senses sounds reflecting off walls  
-2. **Sensor Orientation** – Servo rotates sensors to scan surroundings  
-3. **Distance Measurement** – Ultrasonic sensors detect obstacles  
-4. **Decision Making** – Robot moves forward, turns left, or right based on sensor input  
+- **Arduino Uno** – Microcontrôleur pour le traitement des capteurs et le contrôle des moteurs  
+- **Châssis robot 4WD** – Fournit la mobilité  
+- **Driver moteur L298N** – Contrôle les moteurs  
+- **Capteurs ultrasoniques (3 unités)** – Mesure des distances  
+- **Capteurs audio (microphone array)** – Détecte les réflexions des murs  
+- **Servo-moteur** – Fait pivoter les capteurs audio pour le scan  
+- **Alimentation** – Alimente tous les composants  
 
 ---
 
-## 🛠️ Installation & Setup
+## 📦 Logiciels requis
 
-### 1️⃣ Hardware Assembly
+- **Arduino IDE** – [Télécharger](https://www.arduino.cc/en/software)  
+- **Bibliothèques** :  
+  - `NewPing` – Gestion des capteurs ultrasoniques  
+  - `Servo` – Contrôle du servo-moteur  
+- **Code personnalisé de traitement audio** – Interprète les signaux audio pour la navigation  
 
-- Mount ultrasonic sensors & microphone array on the chassis  
-- Connect motors to L298N driver  
-- Wire components to Arduino Uno  
+---
 
-### 2️⃣ Software Setup
+## 🧭 Algorithme de navigation
 
-1. Install **Arduino IDE**  
-2. Install required libraries via **Sketch → Include Library → Manage Libraries**:  
+Le robot combine **capteurs ultrasoniques** et **audio** pour naviguer de manière autonome :
+
+1. **Détection audio** – Le microphone détecte les sons réfléchis par les murs  
+2. **Orientation des capteurs** – Le servo fait pivoter les capteurs pour scanner l’environnement  
+3. **Mesure des distances** – Les capteurs ultrasoniques détectent les obstacles  
+4. **Prise de décision** – Le robot avance, tourne à gauche ou à droite en fonction des données des capteurs  
+
+---
+
+## 🛠️ Installation & configuration
+
+### 1️⃣ Assemblage matériel
+
+- Monter les capteurs ultrasoniques et le microphone sur le châssis  
+- Connecter les moteurs au driver L298N  
+- Câbler les composants à l’Arduino Uno  
+
+### 2️⃣ Configuration logicielle
+
+1. Installer **Arduino IDE**  
+2. Installer les bibliothèques nécessaires via **Sketch → Include Library → Manage Libraries** :  
    - `NewPing`  
    - `Servo`  
 
-### 3️⃣ Upload Code
+### 3️⃣ Téléversement du code
 
-- Open Arduino sketch in IDE  
-- Select **board & port** under Tools  
-- Click **Upload**  
+- Ouvrir le sketch Arduino dans l’IDE  
+- Sélectionner la **carte et le port** dans le menu Outils  
+- Cliquer sur **Upload**  
 
-### 4️⃣ Power the Robot
+### 4️⃣ Alimentation du robot
 
-- Connect the power supply and verify all components are active  
-
----
-
-## 📐 Circuit Diagram
-
-> Ensure all connections match the diagram below.
-
-![Circuit Diagram](https://example.com/circuit-diagram.jpg)
+- Connecter l’alimentation et vérifier que tous les composants sont actifs  
 
 ---
 
-## 📄 Code Overview
+## 📐 Schéma du circuit
+
+> Vérifier que toutes les connexions correspondent au schéma ci-dessous.
+
+![Schéma du circuit](https://example.com/circuit-diagram.jpg)
+
+---
+
+## 📄 Aperçu du code
+
 
 ```cpp
 #include <NewPing.h>
@@ -164,15 +165,18 @@ void loop() {
   }
 }
 ```
-    This is a framework; additional audio detection logic can be added for smarter maze-solving.
+    Ceci est un cadre de travail ; une logique supplémentaire de détection audio peut être ajoutée pour une résolution de labyrinthe plus intelligente.
+
+---
 
 ## 📄 Conclusion
 
-This project combines ultrasonic + audio sensors for autonomous maze navigation.
-The robot makes informed decisions, successfully avoids obstacles, and demonstrates real-time autonomous control.
+Ce projet combine des capteurs ultrasoniques et audio pour la navigation autonome dans un labyrinthe.  
+Le robot prend des décisions éclairées, évite efficacement les obstacles et démontre un contrôle autonome en temps réel.
 
-Future improvements:
+Améliorations futures :
 
-    Implement machine learning for smarter navigation
-
-    Optimize sensor scanning & decision-making algorithms
+```text
+- Implémenter du machine learning pour une navigation plus intelligente
+- Optimiser les algorithmes de balayage des capteurs et de prise de décision
+```
